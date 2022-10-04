@@ -1,20 +1,21 @@
-from math import sqrt
 import numpy
 def prob(vec,n):
     norma=0
     for i in vec:
         norma+=abs(i)**2
     return ((abs(vec[n]**2)/norma))
-def prob_vec(vec,vec1):
+def amplitud(vec1,vec):
     norm1=numpy.linalg.norm(vec)
     norm2=numpy.linalg.norm(vec1)
     for i in range(len(vec)):
         vec[i]=vec[i]*(1/norm1)
     for i in range(len(vec1)):
         vec1[i]=vec1[i]*(1/norm2)
-    vec1=numpy.matrix.getH(vec)
-
-    print(norm1)
-prob_vec([1+2j,2+2j],[1+1j,1])
-
-print(prob([(-3-1j),(-2j),(1j),(2)],2))
+    for i in range(len(vec)):
+        vec[i]=vec[i].conjugate()
+    resp=numpy.inner(vec,vec1)
+    return resp
+def prob_vec(vec1,vec):
+    return (abs(amplitud(vec1,vec))**2)
+def
+print(amplitud([1,-1j],[1j,1]))
