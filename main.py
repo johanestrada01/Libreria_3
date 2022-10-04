@@ -17,5 +17,9 @@ def amplitud(vec1,vec):
     return resp
 def prob_vec(vec1,vec):
     return (abs(amplitud(vec1,vec))**2)
-def
+def observable(mat,vec):
+    mat2=numpy.matrix.H
+    if mat2!=mat:
+        raise Exception("Matriz no hermitiana")
+
 print(amplitud([1,-1j],[1j,1]))
